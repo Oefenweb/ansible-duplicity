@@ -1,0 +1,4 @@
+---
+# vars file for duplicity
+duplicity_dependencies:
+  - duplicity

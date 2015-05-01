@@ -1,0 +1,16 @@
+---
+# meta file for duplicity
+galaxy_info:
+  author: Mischa ter Smitten
+  company: Oefenweb.nl B.V.
+  description: Set up the latest version of duplicity in Ubuntu systems
+  license: MIT
+  min_ansible_version: 1.4
+  platforms:
+  - name: Ubuntu
+    versions:
+    - all
+  categories:
+  - system
+  - backup
+dependencies: []
