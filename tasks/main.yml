@@ -1,0 +1,23 @@
+---
+# tasks file for duplicity
+- name: add repository from PPA and install its signing key
+  apt_repository:
+    repo: 'ppa:duplicity-team/ppa'
+    update_cache: yes
+  tags: [configuration, duplicity, duplicity-add-repository]
+
+- name: install dependencies
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items: duplicity_dependencies
+  when: duplicity_dependencies
+  tags: [configuration, duplicity, duplicity-dependencies]
+
+- name: install
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items: duplicity_install
+  when: duplicity_install
+  tags: [configuration, duplicity, duplicity-install]
