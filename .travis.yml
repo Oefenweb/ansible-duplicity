@@ -85,3 +85,4 @@ notifications:
   hipchat:
     rooms:
       secure: PkB1VPSPkyYPEdnUQ16cCt6MshAtXJsPdNW5d+D59cpXkpw70mzKrNk6pzdib75DPnoQtpdMP25q1eV2lPlTzYoyTKzWBBDp4dM0WpnFJ0u/PkkMezw3lkqegvmB1U+AwSYSZU/xkqrGTvjAdw+hICsT0v2JUGExR/afFF6aKrU=
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
