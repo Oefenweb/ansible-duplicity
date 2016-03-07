@@ -12,6 +12,6 @@ galaxy_info:
         - lucid
         - precise
         - trusty
-  categories:
+  galaxy_tags:
     - system
 dependencies: []
