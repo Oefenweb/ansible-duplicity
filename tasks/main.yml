@@ -4,18 +4,27 @@
   apt_repository:
     repo: 'ppa:duplicity-team/ppa'
     update_cache: true
-  tags: [configuration, duplicity, duplicity-add-repository]
+  tags:
+    - configuration
+    - duplicity
+    - duplicity-add-repository
 
 - name: install dependencies
   apt:
     name: "{{ item }}"
     state: latest
-  with_items: duplicity_dependencies
-  tags: [configuration, duplicity, duplicity-dependencies]
+  with_items: "{{ duplicity_dependencies }}"
+  tags:
+    - configuration
+    - duplicity
+    - duplicity-dependencies
 
 - name: install
   apt:
     name: "{{ item }}"
     state: latest
-  with_items: duplicity_install
-  tags: [configuration, duplicity, duplicity-install]
+  with_items: "{{ duplicity_install }}"
+  tags:
+    - configuration
+    - duplicity
+    - duplicity-install
