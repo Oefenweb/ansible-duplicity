@@ -1,6 +1,6 @@
 ## duplicity
 
-[![Build Status](https://travis-ci.org/Oefenweb/ansible-duplicity.svg?branch=master)](https://travis-ci.org/Oefenweb/ansible-duplicity) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-duplicity-blue.svg)](https://galaxy.ansible.com/list#/roles/3584)
+[![Build Status](https://travis-ci.org/Oefenweb/ansible-duplicity.svg?branch=master)](https://travis-ci.org/Oefenweb/ansible-duplicity) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-duplicity-blue.svg)](https://galaxy.ansible.com/Oefenweb/duplicity)
 
 Set up the latest version of [duplicity](http://duplicity.nongnu.org/) in Ubuntu systems.
 
