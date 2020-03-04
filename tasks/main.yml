@@ -11,9 +11,8 @@
 
 - name: install dependencies
   apt:
-    name: "{{ item }}"
+    name: "{{ duplicity_dependencies }}"
     state: "{{ apt_install_state | default('latest') }}"
-  with_items: "{{ duplicity_dependencies }}"
   tags:
     - configuration
     - duplicity
@@ -21,9 +20,8 @@
 
 - name: install
   apt:
-    name: "{{ item }}"
+    name: "{{ duplicity_install }}"
     state: "{{ apt_install_state | default('latest') }}"
-  with_items: "{{ duplicity_install }}"
   tags:
     - configuration
     - duplicity
