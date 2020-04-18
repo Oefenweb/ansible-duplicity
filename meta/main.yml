@@ -1,6 +1,7 @@
 # meta file for duplicity
 ---
 galaxy_info:
+  role_name: duplicity
   author: Mischa ter Smitten
   company: Oefenweb.nl B.V.
   description: Set up the latest version of duplicity in Ubuntu systems
