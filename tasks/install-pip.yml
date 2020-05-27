@@ -1,2 +1,24 @@
 # tasks file for duplicity
 ---
+- name: install | pip | dependencies | pre
+  apt:
+    name: "{{ duplicity_pip_dependencies_pre }}"
+    state: "{{ apt_install_state | default('latest') }}"
+    update_cache: true
+    cache_valid_time: "{{ apt_update_cache_valid_time | default(3600) }}"
+  tags:
+    duplicity-install-pip-dependencies-pre
+
+- name: install | pip | dependencies | pre
+  pip:
+    name: "{{ duplicity_pip_dependencies_pre_python }}"
+    executable: "{{ supervisor_pip_pip_executable }}"
+  tags:
+    duplicity-install-pip-dependencies-pre
+
+- name: install | pip | dependencies
+  pip:
+    name: "{{ duplicity_pip_dependencies_python }}"
+    executable: "{{ supervisor_pip_pip_executable }}"
+  tags:
+    - duplicity-install-pip-dependencies
