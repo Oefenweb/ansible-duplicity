@@ -11,6 +11,7 @@ duplicity_ppa_dependencies: "{{ duplicity_native_dependencies }}"
 supervisor_pip_pip_executable: "pip{{ (ansible_distribution_version is version('18.04', '>=')) | ternary('3', '2') }}"
 
 duplicity_pip_dependencies_pre:
+  - build-essential
   - librsync-dev
   - rdiff
   - gettext
