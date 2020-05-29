@@ -1,0 +1,8 @@
+# pre test file for virtualenv
+---
+- name: post | check
+  command: >
+    duplicity --version
+  args:
+      warn: false
+  changed_when: false

@@ -20,3 +20,5 @@
     - include: pre.yml
   roles:
     - ../../
+  post_tasks:
+    - include: post.yml

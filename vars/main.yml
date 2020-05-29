@@ -18,3 +18,5 @@ duplicity_pip_dependencies_pre:
 
 duplicity_pip_dependencies_pre_python:
   - setuptools_scm
+
+duplicity_pip_path: /usr/local/bin/duplicity

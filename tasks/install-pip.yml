@@ -22,3 +22,13 @@
     executable: "{{ supervisor_pip_pip_executable }}"
   tags:
     - duplicity-install-pip-dependencies
+
+- name: install | pip | shebang
+  command: >
+    sed -i -e '1s:#!/usr/bin/env python3:#!/usr/bin/env python2:' {{ duplicity_pip_path }}
+  args:
+      warn: false
+  changed_when: false
+  when: ansible_distribution_version is version('20.04', '<')
+  tags:
+    - duplicity-install-pip-shebang
