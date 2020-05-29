@@ -23,7 +23,7 @@
   tags:
     - duplicity-install-pip-dependencies
 
-- name: install | pip | shebang
+- name: install | pip | fix shebang
   replace:
     path: "{{ duplicity_pip_path }}"
     regexp: '^\#\!\/usr\/bin\/env\ python3$'
