@@ -24,6 +24,10 @@ Set up (the latest version of) [duplicity](http://duplicity.nongnu.org/) in Ubun
 * `rdiff` (will be installed)
 * `gettext` (will be installed)
 
+* `python(2|3)` (will **not** be installed)
+* `python(2|3)-dev` (will **not** be installed)
+* `pip` (will **not** be installed)
+
 when using `duplicity_install_method: pip`
 
 #### Example(s)
