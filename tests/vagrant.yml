@@ -5,7 +5,7 @@
   become: true
   gather_facts: no
   pre_tasks:
-    # Needed because python (/usr/bin/python) is not installed
+    # Needed because python (/usr/bin/python) is not present (in 20.04)
     - name: install python (if needed)
       raw: >
         test -e /usr/bin/python || (apt update -y && (apt install -y python-is-python3))
