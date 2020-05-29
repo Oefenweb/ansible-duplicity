@@ -1,5 +1,14 @@
 # tasks file for duplicity
 ---
+- name: install | pip | remove (distro version)
+  apt:
+    name: "{{ duplicity_package_name }}"
+    state: absent
+    purge: true
+  tags:
+    duplicity-install-pip-remove
+    duplicity-install-pip-remove-distro-version
+
 - name: install | pip | dependencies | pre
   apt:
     name: "{{ duplicity_pip_dependencies_pre }}"
