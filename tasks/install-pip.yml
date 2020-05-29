@@ -24,11 +24,9 @@
     - duplicity-install-pip-dependencies
 
 - name: install | pip | shebang
-  command: >
-    sed -i -e '1s:#!/usr/bin/env python3:#!/usr/bin/env python2:' {{ duplicity_pip_path }}
-  args:
-      warn: false
-  changed_when: false
-  when: ansible_distribution_version is version('20.04', '<')
+  replace:
+    path: "{{ duplicity_pip_path }}"
+    regexp: '^\#\!\/usr\/bin\/env\ python3$'
+    replace: '#!/usr/bin/env python2'
   tags:
     - duplicity-install-pip-shebang
