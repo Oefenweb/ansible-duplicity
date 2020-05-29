@@ -5,10 +5,10 @@
   become: true
   gather_facts: no
   pre_tasks:
-    # Needed because python is not installed
+    # Needed because python (/usr/bin/python) is not installed
     - name: install python (if needed)
       raw: >
-        test -e /usr/bin/python || (apt update -y && (apt install -y python-is-python3 || apt install -y python-minimal))
+        test -e /usr/bin/python || (apt update -y && (apt install -y python-is-python3))
       register: _python_minimal
       changed_when:
         - _python_minimal.stdout_lines | length > 0
