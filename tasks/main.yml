@@ -1,24 +1,27 @@
 # tasks file for duplicity
 ---
-- name: add repository from PPA and install its signing key
-  apt_repository:
-    repo: 'ppa:duplicity-team/ppa'
-    update_cache: true
+- include: install-native.yml
+  when: duplicity_install_method == 'native'
   tags:
     - configuration
     - duplicity
-    - duplicity-add-repository
+    - duplicity-install-native
 
-- name: install dependencies
-  apt:
-    name: "{{ duplicity_dependencies }}"
-    state: "{{ apt_install_state | default('latest') }}"
+- include: install-ppa.yml
+  when: duplicity_install_method == 'ppa'
   tags:
     - configuration
     - duplicity
-    - duplicity-dependencies
+    - duplicity-install-ppa
 
-- name: install
+- include: install-pip.yml
+  when: duplicity_install_method == 'pip'
+  tags:
+    - configuration
+    - duplicity
+    - duplicity-install-pip
+
+- name: install additional
   apt:
     name: "{{ duplicity_install }}"
     state: "{{ apt_install_state | default('latest') }}"
@@ -26,3 +29,4 @@
     - configuration
     - duplicity
     - duplicity-install
+    - duplicity-install-additional

@@ -1,4 +1,23 @@
 # vars file for duplicity
 ---
-duplicity_dependencies:
-  - duplicity
+duplicity_package_name: duplicity
+duplicity_native_dependencies:
+  - "{{ duplicity_package_name }}"
+
+duplicity_ppa_stable: 'ppa:duplicity-team/duplicity-release-git'
+duplicity_ppa_daily: 'ppa:duplicity-team/duplicity-develop-git'
+
+duplicity_ppa_dependencies: "{{ duplicity_native_dependencies }}"
+
+supervisor_pip_pip_executable: "pip{{ (ansible_distribution_version is version('20.04', '>=')) | ternary('3', '2') }}"
+
+duplicity_pip_dependencies_pre:
+  - build-essential
+  - librsync-dev
+  - rdiff
+  - gettext
+
+duplicity_pip_dependencies_pre_python:
+  - setuptools_scm
+
+duplicity_pip_duplicity_path: /usr/local/bin/duplicity

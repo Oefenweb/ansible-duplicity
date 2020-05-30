@@ -1,3 +1,12 @@
 # defaults file for duplicity
 ---
+duplicity_install_method: native
+# Only available for 18.04+
+# duplicity_install_method: ppa
+# Works on all versions
+# duplicity_install_method: pip
+
+duplicity_pip_dependencies_python:
+  - 'duplicity==0.8.13'
+
 duplicity_install: []
