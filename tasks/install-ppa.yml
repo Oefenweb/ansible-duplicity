@@ -4,6 +4,7 @@
   apt_repository:
     repo: "{{ duplicity_ppa_stable }}"
     update_cache: true
+    mode: 0644
   tags:
     - duplicity-install-ppa-add-repository
 
