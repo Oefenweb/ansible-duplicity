@@ -11,7 +11,7 @@ Set up (the latest version of) [duplicity](http://duplicity.nongnu.org/) in Ubun
 
 #### Variables
 
-* `duplicity_install_method`: [default: `native`]: The way to install duplicity (e.g. `native` (from Ubuntu repo), `PPA` (`ppa:duplicity-team/duplicity-release-git`), or `pip`)
+* `duplicity_install_method`: [default: `native`]: The way to install duplicity (e.g. `native` (from Ubuntu repo), `ppa` (`ppa:duplicity-team/duplicity-release-git`), or `pip`)
 
 * `duplicity_pip_dependencies_python`: [default: `['duplicity==0.8.13']`]: Pip dependencies to install. Only relevant when using `duplicity_install_method: pip`
 
