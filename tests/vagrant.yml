@@ -11,14 +11,18 @@
         test -e /usr/bin/python || (apt update -y && (apt install -y python-is-python3))
       register: _python_minimal
       changed_when:
-        - _python_minimal.stdout.strip() != ''
+        - _python_minimal.stdout.strip() | length
 
 - hosts: all
   remote_user: vagrant
   become: true
   pre_tasks:
-    - include: pre.yml
+    - name: include vars
+      include_vars: "{{ playbook_dir }}/vars/main.yml"
+    - name: include tasks
+      include: "{{ playbook_dir }}/tasks/pre.yml"
   roles:
     - ../../
   post_tasks:
-    - include: post.yml
+    - name: include tasks
+      include: "{{ playbook_dir }}/tasks/post.yml"
