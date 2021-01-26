@@ -1,6 +1,6 @@
-# pre test file for virtualenv
+# post test file for duplicity
 ---
-- name: post | check
+- name: run test
   command: >
     duplicity --version
   args:
