@@ -7,17 +7,10 @@ Set up (the latest version of) [duplicity](http://duplicity.nongnu.org/) in Ubun
 
 #### Requirements
 
-* `python-apt`
+* `software-properties-common` (will be installed)
+* `dirmngr` (will be installed)
 
-#### Variables
-
-* `duplicity_install_method`: [default: `native`]: The way to install duplicity (e.g. `native` (from Ubuntu repo), `ppa` (`ppa:duplicity-team/duplicity-release-git`), or `pip`)
-
-* `duplicity_pip_dependencies_python`: [default: `['duplicity==0.8.13']`]: Pip dependencies to install. Only relevant when using `duplicity_install_method: pip`
-
-* `duplicity_install`: [default: `[]`]: Additional packages to install (e.g. `ncftp`)
-
-## Dependencies
+when using `duplicity_install_method: ppa`
 
 * `build-essential` (will be installed)
 * `librsync-dev` (will be installed)
@@ -29,6 +22,18 @@ Set up (the latest version of) [duplicity](http://duplicity.nongnu.org/) in Ubun
 * `pip` (will **not** be installed)
 
 when using `duplicity_install_method: pip`
+
+#### Variables
+
+* `duplicity_install_method`: [default: `native`]: The way to install duplicity (e.g. `native` (from Ubuntu repo), `ppa` (`ppa:duplicity-team/duplicity-release-git`, `> 16.04` only), or `pip`)
+
+* `duplicity_pip_dependencies_python`: [default: `['duplicity==0.8.18']`]: Pip dependencies to install. Only relevant when using `duplicity_install_method: pip`
+
+* `duplicity_install`: [default: `[]`]: Additional packages to install (e.g. `ncftp`)
+
+## Dependencies
+
+None
 
 #### Example(s)
 

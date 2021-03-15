@@ -1,6 +1,7 @@
-# meta file for duplicity
+# meta file
 ---
 galaxy_info:
+  namespace: oefenweb
   role_name: duplicity
   author: Mischa ter Smitten
   company: Oefenweb.nl B.V.
