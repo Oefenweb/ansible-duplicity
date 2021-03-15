@@ -37,6 +37,6 @@
     path: "{{ duplicity_pip_duplicity_path }}"
     regexp: '^\#\!\/usr\/bin\/env\ python3$'
     replace: '#!/usr/bin/env python2'
-  when: ansible_distribution_version is version('20.04', '<')
+  when: duplicity_pip_pip_executable == 'pip2'
   tags:
     - duplicity-install-pip-fix-shebang
