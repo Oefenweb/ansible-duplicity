@@ -27,7 +27,7 @@ when using `duplicity_install_method: pip`
 
 * `duplicity_install_method`: [default: `native`]: The way to install duplicity (e.g. `native` (from Ubuntu repo), `ppa` (`ppa:duplicity-team/duplicity-release-git`, `> 16.04` only), or `pip`)
 
-* `duplicity_pip_dependencies_python`: [default: `['duplicity==0.8.13']`]: Pip dependencies to install. Only relevant when using `duplicity_install_method: pip`
+* `duplicity_pip_dependencies_python`: [default: `['duplicity==0.8.18']`]: Pip dependencies to install. Only relevant when using `duplicity_install_method: pip`
 
 * `duplicity_install`: [default: `[]`]: Additional packages to install (e.g. `ncftp`)
 

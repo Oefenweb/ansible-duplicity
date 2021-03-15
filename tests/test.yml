@@ -14,5 +14,3 @@
       include: "{{ playbook_dir }}/tasks/pre.yml"
   roles:
     - ../../
-  vars:
-    duplicity_install_method: ppa
