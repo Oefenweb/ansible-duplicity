@@ -1,4 +1,4 @@
-# tasks file for duplicity
+# tasks file
 ---
 - name: install | native | dependencies
   apt:

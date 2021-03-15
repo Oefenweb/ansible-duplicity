@@ -19,6 +19,11 @@ Set up (the latest version of) [duplicity](http://duplicity.nongnu.org/) in Ubun
 
 ## Dependencies
 
+* `software-properties-common` (will be installed)
+* `dirmngr` (will be installed)
+
+when using `duplicity_install_method: ppa`
+
 * `build-essential` (will be installed)
 * `librsync-dev` (will be installed)
 * `rdiff` (will be installed)

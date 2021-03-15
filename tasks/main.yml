@@ -1,4 +1,4 @@
-# tasks file for duplicity
+# tasks file
 ---
 - include: install-native.yml
   when: duplicity_install_method == 'native'
@@ -30,3 +30,13 @@
     - duplicity
     - duplicity-install
     - duplicity-install-additional
+
+- name: verify
+  command: >
+    duplicity --version
+  changed_when: false
+  tags:
+    - configuration
+    - duplicity
+    - duplicity-install
+    - duplicity-install-verify

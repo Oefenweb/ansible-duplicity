@@ -1,4 +1,4 @@
-# defaults file for duplicity
+# defaults file
 ---
 duplicity_install_method: native
 # Only available for 18.04+

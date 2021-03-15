@@ -1,8 +1,0 @@
-# post test file for duplicity
----
-- name: run test
-  command: >
-    duplicity --version
-  args:
-      warn: false
-  changed_when: false
