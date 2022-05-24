@@ -1,0 +1,4 @@
+# vars file
+---
+duplicity_python_version_major: 2
+duplicity_get_pip_url: 'https://bootstrap.pypa.io/pip/2.7/get-pip.py'

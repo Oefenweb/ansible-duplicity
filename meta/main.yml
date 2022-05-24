@@ -1,16 +1,16 @@
-# meta file for duplicity
+# meta file
 ---
 galaxy_info:
+  namespace: oefenweb
   role_name: duplicity
   author: Mischa ter Smitten
   company: Oefenweb.nl B.V.
   description: Set up the latest version of duplicity in Ubuntu systems
   license: MIT
-  min_ansible_version: 2.8.0
+  min_ansible_version: 2.9.0
   platforms:
     - name: Ubuntu
       versions:
-        - trusty
         - xenial
         - bionic
         - focal

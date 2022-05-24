@@ -1,4 +1,4 @@
-# test file for duplicity
+# test file
 ---
 - hosts: all
   remote_user: vagrant
@@ -8,17 +8,22 @@
     # Needed because python (/usr/bin/python) is not present (in 20.04)
     - name: install python (if needed)
       raw: >
-        test -e /usr/bin/python || (apt update -y && (apt install -y python-is-python3))
+        test -e /usr/bin/python || (apt update -y && apt install -y python-is-python3)
       register: _python_minimal
       changed_when:
-        - _python_minimal.stdout.strip() != ''
+        - _python_minimal.stdout.strip() | length
 
 - hosts: all
   remote_user: vagrant
   become: true
   pre_tasks:
-    - include: pre.yml
+    - name: include variables
+      include_vars: "{{ item }}"
+      with_first_found:
+        - "{{ playbook_dir }}/vars/_{{ ansible_distribution_release }}.yml"
+        - "{{ playbook_dir }}/vars/_{{ ansible_distribution | lower }}.yml"
+        - "{{ playbook_dir }}/vars/_default.yml"
+    - name: include tasks
+      include: "{{ playbook_dir }}/tasks/pre.yml"
   roles:
     - ../../
-  post_tasks:
-    - include: post.yml

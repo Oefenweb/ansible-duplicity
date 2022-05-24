@@ -1,5 +1,14 @@
-# tasks file for duplicity
+# tasks file
 ---
+- name: install | ppa | dependencies (pre)
+  apt:
+    name: "{{ duplicity_ppa_dependencies_pre }}"
+    state: "{{ apt_install_state | default('latest') }}"
+    update_cache: true
+    cache_valid_time: "{{ apt_update_cache_valid_time | default(3600) }}"
+  tags:
+    - duplicity-install-ppa-dependencies
+
 - name: install | ppa | add repository and its signing key
   apt_repository:
     repo: "{{ duplicity_ppa_stable }}"

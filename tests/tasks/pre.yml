@@ -1,0 +1,23 @@
+# pre test file
+---
+- block:
+
+    - name: install test dependencies
+      apt:
+        name:
+          - "python{{ (ansible_distribution_version is version('20.04', '>=')) | ternary('3', '') }}-dev"
+          - curl
+        state: "{{ apt_install_state | default('latest') }}"
+        update_cache: true
+        cache_valid_time: "{{ apt_update_cache_valid_time | default(3600) }}"
+
+    - name: install test dependencies
+      shell: >
+        curl -sL {{ duplicity_get_pip_url }} | python{{ (ansible_distribution_version is version('20.04', '>=')) | ternary('3', '2') }} -
+      args:
+        warn: false
+      changed_when: false
+      tags:
+        - skip_ansible_lint
+
+  when: duplicity_install_method == 'pip'
