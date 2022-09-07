@@ -1,7 +1,7 @@
 # tasks file
 ---
 - name: install | pip | remove (distro version)
-  apt:
+  ansible.builtin.apt:
     name: "{{ duplicity_package_name }}"
     state: absent
     purge: true
@@ -10,7 +10,7 @@
     duplicity-install-pip-remove-distro-version
 
 - name: install | pip | dependencies | pre
-  apt:
+  ansible.builtin.apt:
     name: "{{ duplicity_pip_dependencies_pre }}"
     state: "{{ apt_install_state | default('latest') }}"
     update_cache: true
@@ -19,21 +19,21 @@
     duplicity-install-pip-dependencies-pre
 
 - name: install | pip | dependencies | pre
-  pip:
+  ansible.builtin.pip:
     name: "{{ duplicity_pip_dependencies_pre_python }}"
     executable: "{{ duplicity_pip_pip_executable }}"
   tags:
     duplicity-install-pip-dependencies-pre
 
 - name: install | pip | dependencies
-  pip:
+  ansible.builtin.pip:
     name: "{{ duplicity_pip_dependencies_python }}"
     executable: "{{ duplicity_pip_pip_executable }}"
   tags:
     - duplicity-install-pip-dependencies
 
 - name: install | pip | fix shebang
-  replace:
+  ansible.builtin.replace:
     path: "{{ duplicity_pip_duplicity_path }}"
     regexp: '^\#\!\/usr\/bin\/env\ python3$'
     replace: '#!/usr/bin/env python2'
