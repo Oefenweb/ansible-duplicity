@@ -1,20 +1,20 @@
 # tasks file
 ---
-- include: install-native.yml
+- ansible.builtin.include: install-native.yml
   when: duplicity_install_method == 'native'
   tags:
     - configuration
     - duplicity
     - duplicity-install-native
 
-- include: install-ppa.yml
+- ansible.builtin.include: install-ppa.yml
   when: duplicity_install_method == 'ppa'
   tags:
     - configuration
     - duplicity
     - duplicity-install-ppa
 
-- include: install-pip.yml
+- ansible.builtin.include: install-pip.yml
   when: duplicity_install_method == 'pip'
   tags:
     - configuration
@@ -22,7 +22,7 @@
     - duplicity-install-pip
 
 - name: install additional
-  apt:
+  ansible.builtin.apt:
     name: "{{ duplicity_install }}"
     state: "{{ apt_install_state | default('latest') }}"
   tags:
@@ -32,7 +32,7 @@
     - duplicity-install-additional
 
 - name: verify
-  command: >
+  ansible.builtin.command: >
     duplicity --version
   changed_when: false
   tags:
