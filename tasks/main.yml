@@ -1,20 +1,23 @@
 # tasks file
 ---
-- ansible.builtin.include: install-native.yml
+- name: install native
+  ansible.builtin.import_tasks: install-native.yml
   when: duplicity_install_method == 'native'
   tags:
     - configuration
     - duplicity
     - duplicity-install-native
 
-- ansible.builtin.include: install-ppa.yml
+- name: install ppa
+  ansible.builtin.import_tasks: install-ppa.yml
   when: duplicity_install_method == 'ppa'
   tags:
     - configuration
     - duplicity
     - duplicity-install-ppa
 
-- ansible.builtin.include: install-pip.yml
+- name: install pip
+  ansible.builtin.import_tasks: install-pip.yml
   when: duplicity_install_method == 'pip'
   tags:
     - configuration
