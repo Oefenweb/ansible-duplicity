@@ -43,7 +43,7 @@ None
 ---
 - hosts: all
   roles:
-    - duplicity
+    - oefenweb.duplicity
 ```
 
 ##### PPA
@@ -52,7 +52,7 @@ None
 ---
 - hosts: all
   roles:
-    - duplicity
+    - oefenweb.duplicity
   vars:
     duplicity_install_method: ppa
 ```
@@ -63,7 +63,7 @@ None
 ---
 - hosts: all
   roles:
-    - duplicity
+    - oefenweb.duplicity
   vars:
     duplicity_install_method: pip
     # Always install latest
