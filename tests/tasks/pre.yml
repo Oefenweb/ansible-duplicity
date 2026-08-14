@@ -1,8 +1,9 @@
 # pre test file
 ---
-- block:
-
-    - name: install test dependencies
+- name: install test dependencies
+  when: duplicity_install_method == 'pip'
+  block:
+    - name: install test dependencies | apt
       ansible.builtin.apt:
         name:
           - "python{{ (ansible_facts['distribution_version'] is version('20.04', '>=')) | ternary('3', '') }}-dev"
@@ -11,11 +12,9 @@
         update_cache: true
         cache_valid_time: "{{ apt_update_cache_valid_time | default(3600) }}"
 
-    - name: install test dependencies  # noqa command-instead-of-module
+    - name: install test dependencies | pip  # noqa command-instead-of-module
       ansible.builtin.shell: >
         curl -sL {{ duplicity_get_pip_url }} | python{{ (ansible_facts['distribution_version'] is version('20.04', '>=')) | ternary('3', '2') }} -
       changed_when: false
       tags:
         - skip_ansible_lint
-
-  when: duplicity_install_method == 'pip'
