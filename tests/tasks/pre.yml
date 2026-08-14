@@ -5,7 +5,7 @@
     - name: install test dependencies
       ansible.builtin.apt:
         name:
-          - "python{{ (ansible_distribution_version is version('20.04', '>=')) | ternary('3', '') }}-dev"
+          - "python{{ (ansible_facts['distribution_version'] is version('20.04', '>=')) | ternary('3', '') }}-dev"
           - curl
         state: "{{ apt_install_state | default('latest') }}"
         update_cache: true
@@ -13,7 +13,7 @@
 
     - name: install test dependencies  # noqa command-instead-of-module
       ansible.builtin.shell: >
-        curl -sL {{ duplicity_get_pip_url }} | python{{ (ansible_distribution_version is version('20.04', '>=')) | ternary('3', '2') }} -
+        curl -sL {{ duplicity_get_pip_url }} | python{{ (ansible_facts['distribution_version'] is version('20.04', '>=')) | ternary('3', '2') }} -
       changed_when: false
       tags:
         - skip_ansible_lint

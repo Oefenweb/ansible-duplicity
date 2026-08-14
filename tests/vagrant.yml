@@ -1,6 +1,7 @@
 # test file
 ---
-- hosts: all
+- name: converge
+  hosts: all
   remote_user: vagrant
   become: true
   gather_facts: false
@@ -11,17 +12,18 @@
         test -e /usr/bin/python || (apt update -y && apt install -y python-is-python3)
       register: _python_minimal
       changed_when:
-        - _python_minimal.stdout.strip() | length
+        - _python_minimal.stdout.strip() | length > 0
 
-- hosts: all
+- name: converge
+  hosts: all
   remote_user: vagrant
   become: true
   pre_tasks:
     - name: include variables
       ansible.builtin.include_vars: "{{ item }}"
       with_first_found:
-        - "{{ playbook_dir }}/vars/_{{ ansible_distribution_release }}.yml"
-        - "{{ playbook_dir }}/vars/_{{ ansible_distribution | lower }}.yml"
+        - "{{ playbook_dir }}/vars/_{{ ansible_facts['distribution_release'] }}.yml"
+        - "{{ playbook_dir }}/vars/_{{ ansible_facts['distribution'] | lower }}.yml"
         - "{{ playbook_dir }}/vars/_default.yml"
     - name: include tasks
       ansible.builtin.import_tasks: "{{ playbook_dir }}/tasks/pre.yml"

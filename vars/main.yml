@@ -19,6 +19,6 @@ duplicity_pip_dependencies_pre:
   - gettext
 duplicity_pip_dependencies_pre_python:
   - setuptools_scm
-duplicity_pip_pip_executable: "pip{{ (ansible_distribution_version is version('20.04', '>=')) | ternary('3', '2') }}"
+duplicity_pip_pip_executable: "pip{{ (ansible_facts['distribution_version'] is version('20.04', '>=')) | ternary('3', '2') }}"
 
 duplicity_pip_duplicity_path: /usr/local/bin/duplicity
