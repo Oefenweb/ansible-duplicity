@@ -9,6 +9,7 @@ Set up (the latest version of) [duplicity](http://duplicity.nongnu.org/) in Ubun
 
 * `software-properties-common` (will be installed)
 * `dirmngr` (will be installed)
+* `apt-transport-https` (will be installed)
 
 when using `duplicity_install_method: ppa`
 
