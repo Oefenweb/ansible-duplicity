@@ -45,3 +45,10 @@
   with_items: "{{ duplicity_ppa_repositories }}"
   tags:
     - duplicity-install-ppa-add
+
+- name: install | ppa | dependencies
+  ansible.builtin.apt:
+    name: "{{ duplicity_ppa_dependencies }}"
+    state: "{{ apt_install_state | default('latest') }}"
+  tags:
+    - duplicity-install-ppa-dependencies
